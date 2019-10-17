@@ -21,6 +21,6 @@ policy[r] {
    r = fugue.deny_resource(security_group)
 } {
    security_group = tagged_sgs[_]
-  not invalid(security_group)
+   not invalid(security_group)
    r = fugue.allow_resource(security_group)
 }
