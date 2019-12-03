@@ -1,4 +1,6 @@
-# The following multi-resource type validation checks ALL supported taggable AWS resources for a tag named Stage with a value Prod.
+# The following multi-resource type validation checks ALL supported taggable
+# AWS resources for a tag named Stage with a value Prod. Comment out the
+# resources you don't use in any environment.
 
 taggable_resource_types = {
   "AWS.CloudFront.Distribution",
