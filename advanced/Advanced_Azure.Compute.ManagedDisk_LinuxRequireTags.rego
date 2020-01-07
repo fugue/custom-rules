@@ -5,6 +5,9 @@
 # Linux have an "application" tag with a non-blank value. Because this is 
 # an advanced custom rule, select "MULTIPLE" from the Resource Type 
 # dropdown on the Fugue Custom Rules page.
+#
+# This is an advanced rule because it validates Linux managed disks only;
+# it can be written as a simple rule if you want to validate all managed disks.
 
 # All managed disks in the env
 managed_disks = fugue.resources("Azure.Compute.ManagedDisk")
