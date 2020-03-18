@@ -1,5 +1,7 @@
-# The following multi-resource type validation checks that all Security Groups
-# attached to the production VPC have a Stage tag with the value Prod.
+# Provider: AWS
+# Resource-Type: MULTIPLE
+# Description: The following multi-resource type validation checks that all Security Groups attached to the production VPC have a Stage tag with the value Prod.
+#
 # The production VPC.
 prod_vpc = vpc {
   vpcs = fugue.resources("AWS.EC2.Vpc")

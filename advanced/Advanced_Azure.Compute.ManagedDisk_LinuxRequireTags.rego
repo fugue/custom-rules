@@ -1,5 +1,6 @@
-# Resource type: MULTIPLE
-# Name: Azure managed disks running Linux must have "application" tag
+# Provider: Azure
+# Resource-Type: MULTIPLE
+# Description: Azure managed disks running Linux must have "application" tag
 #
 # The following advanced custom rule checks that all managed disks running 
 # Linux have an "application" tag with a non-blank value. Because this is 
