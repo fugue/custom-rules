@@ -1,4 +1,6 @@
-# VPC security groups tagged Stage:Prod should not permit ingress from '0.0.0.0/0' to TCP port 9200 (Elasticsearch). Removing unfettered connectivity to an Elasticsearch server reduces the chance of exposing critical data.
+# Provider: AWS_GOVCLOUD
+# Resource-Type: MULTIPLE
+# Description: VPC security groups tagged Stage:Prod should not permit ingress from '0.0.0.0/0' to TCP port 9200 (Elasticsearch). Removing unfettered connectivity to an Elasticsearch server reduces the chance of exposing critical data.
 
 # Return all security groups in an environment, then filter on the tag Stage:Prod
 tagged_sgs[tags] = security_group {
