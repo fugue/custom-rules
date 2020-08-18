@@ -84,7 +84,8 @@ taggable_resource_types = {
   "AWS.SSM.Document",
   "AWS.SSM.MaintenanceWindow",
   "AWS.SSM.Parameter",
-  "AWS.SSM.PatchBaseline"
+  "AWS.SSM.PatchBaseline",
+  "AWS.WAF.WebACL"
 }
 
 taggable_resources[id] = resource {
