@@ -5,7 +5,6 @@
 # This is an example of a more complex rule.  It does a whitelist check on
 # ingress ports in security groups; however, the whitelist of ports is
 # determined by AWS account number.
-package rule
 
 # The account ID.
 account_id = ret {
