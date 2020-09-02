@@ -26,7 +26,7 @@ allowed_ports[80] {
   account_id != "000000000000"  # Production, replace this.
 }
 
-# You can more logic for further `allowed_ports` here.
+# You can add more logic for further `allowed_ports` here.
 # allowed_ports[8080] {
 #   account_id == "111111111111"  # Staging
 # }
