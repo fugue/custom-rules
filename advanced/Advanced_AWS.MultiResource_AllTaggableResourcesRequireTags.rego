@@ -140,8 +140,9 @@ taggable_resource_types = {
 }
 
 taggable_resources[id] = resource {
-  taggable_resource_types[a_resource_type]
-  resources = fugue.resources(a_resource_type)
+  some type_name
+  taggable_resource_types[type_name]
+  resources = fugue.resources(type_name)
   resource = resources[id]
 }
 
