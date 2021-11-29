@@ -1,17 +1,6 @@
-package rules.sg_no_ingress_by_account
-
-__rego__metadoc__ := {
-  "title": "AWS.EC2.SecurityGroup-NoIngressByAccount",
-  "description": "The Production account can only allow ingress from 0.0.0.0/0 to port 443.  Other accounts may allow ingress to port 80.",
-  "custom": {
-    "providers": ["AWS"],
-    "severity": "Medium"
-  }
-}
-
-input_type = "tf"
-
-resource_type = "AWS.EC2.SecurityGroup"
+# Provider: AWS
+# Resource-Type: AWS.EC2.SecurityGroup
+# Description: The Production account can only allow ingress from 0.0.0.0/0 to port 443.  Other accounts may allow ingress to port 80.
 
 # This is an example of a more complex rule.  It does a whitelist check on
 # ingress ports in security groups; however, the whitelist of ports is

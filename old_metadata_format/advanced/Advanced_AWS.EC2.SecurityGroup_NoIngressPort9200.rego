@@ -1,21 +1,6 @@
-# This is an advanced version of a simple rule. It can be rewritten 
-# as the simple rule in 
-# custom-rules/simple/AWS.EC2.SecurityGroup_NoIngressPort9200.rego.
-
-package rules.sg_9200
-
-__rego__metadoc__ := {
-  "title": "Advanced-AWS.EC2.SecurityGroup-NoIngressPort9200",
-  "description": "VPC security groups should not permit ingress from '0.0.0.0/0' to TCP port 9200 (Elasticsearch). Removing unfettered connectivity to an Elasticsearch server reduces the chance of exposing critical data.",
-  "custom": {
-    "providers": ["AWS"],
-    "severity": "Medium"
-  }
-}
-
-input_type = "tf"
-
-resource_type = "MULTIPLE"
+# Provider: AWS
+# Resource-Type: MULTIPLE
+# Description: VPC security groups should not permit ingress from '0.0.0.0/0' to TCP port 9200 (Elasticsearch). Removing unfettered connectivity to an Elasticsearch server reduces the chance of exposing critical data.
 
 # Return all security groups in an environment
 security_groups = fugue.resources("AWS.EC2.SecurityGroup")

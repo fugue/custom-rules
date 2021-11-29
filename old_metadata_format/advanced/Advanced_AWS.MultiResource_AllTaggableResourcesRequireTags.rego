@@ -1,17 +1,6 @@
-package rules.all_taggable_resources
-
-__rego__metadoc__ := {
-  "title": "Advanced-AWS.MultiResource-AllTaggableResourcesRequireTags",
-  "description": "All taggable resources must be tagged with Stage:Prod.",
-  "custom": {
-    "providers": ["AWS"],
-    "severity": "Medium"
-  }
-}
-
-input_type = "tf"
-
-resource_type = "MULTIPLE"
+# Provider: AWS
+# Resource-Type: MULTIPLE
+# Description: All taggable resources must be tagged with Stage:Prod.
 
 # The following multi-resource type validation checks ALL supported
 # taggable AWS resources for a tag named Stage with a value Prod.
@@ -150,8 +139,6 @@ taggable_resource_types = {
   "aws_workspaces_workspace"
 }
 
-# For each taggable resource type, add each of its resources 
-# to the taggable_resources collection
 taggable_resources[id] = resource {
   some type_name
   taggable_resource_types[type_name]
@@ -159,13 +146,10 @@ taggable_resources[id] = resource {
   resource = resources[id]
 }
 
-# Check if resource is properly tagged Stage:Prod
 is_properly_tagged(resource) {
   resource.tags.Stage == "Prod"
 }
 
-# If the resource is properly tagged, return a PASS rule result;
-# otherwise, a FAIL rule result
 policy[r] {
    resource = taggable_resources[_]
    is_properly_tagged(resource)

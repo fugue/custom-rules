@@ -1,18 +1,7 @@
-package rules.vpc_sgs_tags
-
-__rego__metadoc__ := {
-  "title": "Advanced-AWS.MultiResource-VPC-SGs-RequireTags",
-  "description": "The following multi-resource type validation checks that all Security Groups attached to the production VPC have a Stage tag with the value Prod.",
-  "custom": {
-    "providers": ["AWS"],
-    "severity": "Medium"
-  }
-}
-
-input_type = "tf"
-
-resource_type = "MULTIPLE"
-
+# Provider: AWS
+# Resource-Type: MULTIPLE
+# Description: The following multi-resource type validation checks that all Security Groups attached to the production VPC have a Stage tag with the value Prod.
+#
 # The production VPC.
 prod_vpc = vpc {
   vpcs = fugue.resources("AWS.EC2.Vpc")

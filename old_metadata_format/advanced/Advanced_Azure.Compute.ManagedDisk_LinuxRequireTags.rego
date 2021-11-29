@@ -1,18 +1,7 @@
-package rules.managed_disks_linux_tags
-
-__rego__metadoc__ := {
-  "title": "Advanced-Azure.Compute.ManagedDisk-LinuxRequireTags",
-  "description": "Azure managed disks running Linux must have \"application\" tag",
-  "custom": {
-    "providers": ["AZURE"],
-    "severity": "Medium"
-  }
-}
-
-input_type = "tf"
-
-resource_type = "MULTIPLE"
-
+# Provider: AZURE
+# Resource-Type: MULTIPLE
+# Description: Azure managed disks running Linux must have "application" tag
+#
 # The following advanced custom rule checks that all managed disks running 
 # Linux have an "application" tag with a non-blank value. Because this is 
 # an advanced custom rule, select "MULTIPLE" from the Resource Type 
