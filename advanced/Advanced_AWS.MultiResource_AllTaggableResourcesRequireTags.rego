@@ -150,10 +150,12 @@ taggable_resource_types = {
   "aws_workspaces_workspace"
 }
 
+scanned_resource_types := fugue.resource_types()
+
 # For each taggable resource type, add each of its resources 
 # to the taggable_resources collection
 taggable_resources[id] = resource {
-  some type_name
+  scanned_resource_types[type_name]
   taggable_resource_types[type_name]
   resources = fugue.resources(type_name)
   resource = resources[id]
