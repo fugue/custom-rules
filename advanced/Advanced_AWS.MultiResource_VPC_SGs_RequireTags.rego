@@ -1,4 +1,5 @@
 package rules.vpc_sgs_tags
+import data.fugue
 
 __rego__metadoc__ := {
   "title": "Advanced-AWS.MultiResource-VPC-SGs-RequireTags",
