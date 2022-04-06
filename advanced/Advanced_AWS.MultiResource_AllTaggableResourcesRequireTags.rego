@@ -1,10 +1,11 @@
 package rules.all_taggable_resources
+import data.fugue
 
 __rego__metadoc__ := {
   "title": "Advanced-AWS.MultiResource-AllTaggableResourcesRequireTags",
   "description": "All taggable resources must be tagged with Stage:Prod.",
   "custom": {
-    "providers": ["AWS"],
+    "providers": ["AWS", "REPOSITORY"],
     "severity": "Medium"
   }
 }
@@ -150,20 +151,31 @@ taggable_resource_types = {
   "aws_workspaces_workspace"
 }
 
-scanned_resource_types := fugue.resource_types()
+scanned_resource_types := fugue.input_resource_types
 
 # For each taggable resource type, add each of its resources 
 # to the taggable_resources collection
 taggable_resources[id] = resource {
+  some type_name
   scanned_resource_types[type_name]
   taggable_resource_types[type_name]
   resources = fugue.resources(type_name)
   resource = resources[id]
 }
 
+# Accommodate resource types that use "tags" or "tag"
+resource_tags(resource) = ret {
+  ret = resource.tags
+}
+
+resource_tags(resource) = ret {
+  resource.tag
+  ret = { t.key: t.value | t = resource.tag[_]}
+}
+
 # Check if resource is properly tagged Stage:Prod
 is_properly_tagged(resource) {
-  resource.tags.Stage == "Prod"
+  resource_tags(resource).Stage == "Prod"
 }
 
 # If the resource is properly tagged, return a PASS rule result;
