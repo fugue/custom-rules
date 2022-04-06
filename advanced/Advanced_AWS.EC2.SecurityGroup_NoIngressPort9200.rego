@@ -3,6 +3,7 @@
 # custom-rules/simple/AWS.EC2.SecurityGroup_NoIngressPort9200.rego.
 
 package rules.sg_9200
+import data.fugue
 
 __rego__metadoc__ := {
   "title": "Advanced-AWS.EC2.SecurityGroup-NoIngressPort9200",

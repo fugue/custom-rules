@@ -1,4 +1,5 @@
 package rules.managed_disks_linux_tags
+import data.fugue
 
 __rego__metadoc__ := {
   "title": "Advanced-Azure.Compute.ManagedDisk-LinuxRequireTags",

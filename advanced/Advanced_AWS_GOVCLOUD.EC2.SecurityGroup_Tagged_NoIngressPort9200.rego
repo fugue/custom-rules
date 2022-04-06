@@ -1,4 +1,5 @@
 package rules.sg_tagged_9200
+import data.fugue
 
 __rego__metadoc__ := {
   "title": "Advanced-AWS-GOVCLOUD.EC2.SecurityGroup-Tagged-NoIngressPort9200",
